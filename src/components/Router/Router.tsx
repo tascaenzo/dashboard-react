@@ -9,8 +9,9 @@ export const Router: FC = () => (
   <BrowserRouter>
     <Switch>
       {routesModule.map((routeModule: RoutingInterface) => (
-        routeModule.routes.map((route) => (
+        routeModule.routes.map((route, i) => (
           <Route
+            key={i}
             exact={route.exact}
             path={route.path}
             render={(props) => (

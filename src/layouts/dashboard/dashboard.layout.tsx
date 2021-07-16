@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { Sidebar } from '../../components/Sidebar';
-
 import { Application, Page, Header } from './dashboard.style';
 
-export const DashboardLayout: FC = ({ children }) => {
+type Props = { children?: JSX.Element | JSX.Element[] };
+
+export const DashboardLayout: FC<Props> = ({ children }: Props) => {
   return (
     <Application>
       <Sidebar />

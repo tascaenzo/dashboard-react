@@ -5,7 +5,7 @@ const AuthRoute: FC<AuthRouteInterface> = ({
   component: Component,
   template: Template,
   type,
-}) => {
+}: AuthRouteInterface) => {
   /* const user = useUser();
 
   if (isPrivate(type) && !user) {
