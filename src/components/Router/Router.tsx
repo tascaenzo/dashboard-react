@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AuthRoute from './AuthRoute';
 import { RoutingInterface } from './helper/router.interface';
-import { routes as routesModule  } from './routes';
+import { routes as routesModule  } from './partials';
 
 export const Router: FC = () => (
   <BrowserRouter>
