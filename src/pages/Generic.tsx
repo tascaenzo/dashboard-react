@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
+import { Table } from '../components/Table';
 
 export const GenericPage: FC = () => {
-  return <h1>Genric Page</h1>
+  return <Table />
 }
