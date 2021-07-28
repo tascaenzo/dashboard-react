@@ -1,31 +1,24 @@
 import React, { FC } from "react";
-import { Row, useTable } from 'react-table'
-import data from './data.json';
+import { Column, Row, useTable } from 'react-table'
+import { Data, data } from './data';
 import { Table as TableStyle, Thead, Th, Tr, Td } from "./Table.style";
+
 const Table: FC = () => {
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'id',
-            accessor: 'id',
-          },
-          {
-            Header: 'First Name',
-            accessor: 'firstName',
-          },
-          {
-            Header: 'Last Name',
-            accessor: 'lastName',
-          },
-        ],
-      },
-      
-    ],
-    []
-  )
+  const columns: Column<Data>[] = [
+    {
+      Header: "id",
+      accessor: "id"
+    },
+    {
+      Header: "Nome",
+      accessor: "firstName"
+    },
+    {
+      Header: "Cognome",
+      accessor: "lastName"
+    }
+  ];
+  
   const {
     getTableProps,
     getTableBodyProps,
