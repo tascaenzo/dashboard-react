@@ -1,13 +1,12 @@
 export enum COLOR {
-  //PRIMARY COLOR
-  PRIMARY_50 = "#eef2ff",
-  PRIMARY_100 = "#e0e7ff",
-  PRIMARY_200 = "#c7d2fe",
-  PRIMARY_300 = "#a5b4fc",
-  PRIMARY_400 = "#818cf8",
-  PRIMARY_500 = "#6366f1",
-  PRIMARY_600 = "#4f46e5",
-  PRIMARY_700 = "#4338ca",
-  PRIMARY_800 = "#3730a3",
-  PRIMARY_900 = "#312e81",
+  WHITE = "#FFF",
+  BLACK = "#000",
+
+  PRIMARY = "#e55c00",
+  PRIMARY_LIGHT = "#ffc299",
+  PRIMARY_DARCK = "#cc5200",
+
+  SECONDARY = "#c9c9c9",
+  SECONDARY_LIGHT = "#f9f9f9",
+  SECONDARY_DARCK = "#7e7e7e",
 }

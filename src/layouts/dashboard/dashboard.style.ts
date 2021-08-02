@@ -12,5 +12,5 @@ export const Application = styled.div`
 `;
 
 export const Page = styled.main`
-  margin: 25px;
+  margin: 45px;
 `;
