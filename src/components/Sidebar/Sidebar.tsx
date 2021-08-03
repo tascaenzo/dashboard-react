@@ -14,13 +14,14 @@ import {
   BiBarChart,
   BiLogOut,
 } from "react-icons/bi";
+import { COLOR } from "../../utils/ui-style";
 
 const Sidebar: FC = () => (
   <SidebarContainer>
     <SidebarMenu>
       <div>
         <Logo>
-          <BiLayer size="25" color="#FFFF" />
+          <BiLayer size="25" color={COLOR.WHITE}/>
           <span>Logo</span>
         </Logo>
 

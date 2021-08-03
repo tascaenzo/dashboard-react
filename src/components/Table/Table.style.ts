@@ -43,5 +43,5 @@ export const Td = styled.div`
 export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
 `;

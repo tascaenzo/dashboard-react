@@ -1,4 +1,3 @@
-import { COLOR } from './colors';
 
 export enum FONT_FAMILY {
   PRIMARY = 'DM Sans',
