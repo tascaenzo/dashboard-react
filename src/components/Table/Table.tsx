@@ -38,7 +38,7 @@ const Table: FC<Props> = ({ columns, items, viewMode }: Props) => {
     return (
       <TableContainer {...getTableProps()}>
         <Thead>
-          {headerGroups.map((headerGroup, i) => (
+          {headerGroups.map((headerGroup) => (
             <Tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <Th {...column.getHeaderProps()}>{column.render("Header")}</Th>

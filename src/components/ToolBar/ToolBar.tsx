@@ -1,6 +1,6 @@
 import React from "react";
-import { BiListUl, BiGridAlt, BiArrowBack } from "react-icons/bi";
-import { ToolBarContainer, Item } from "./ToolBar.style";
+import { BiListUl, BiGridAlt, BiPlus, BiSearchAlt } from "react-icons/bi";
+import { ToolBarContainer, Item, SerchBarr } from "./ToolBar.style";
 import { Props as SwitchProps } from "../../components/IconSwitch/helper/iconSwitch.interface";
 import IconSwitch from "../IconSwitch/IconSwitch";
 import { Button } from "../Button";
@@ -26,11 +26,11 @@ const ToolBar = (): JSX.Element => {
   return (
     <ToolBarContainer>
       <Item>
-        {/* <BiArrowBack size={24} /> */}
-        <Button radius={true} small={true} label={"T"} />
-        <Button radius={true} label={"T"}/>
-        <Button radius={true} large={true} label={"T"}/>
-
+        <Button radius={true} icon={<BiPlus size={26} />}/>
+        <div>
+          <SerchBarr placeholder="test" />
+          <BiSearchAlt />
+        </div>
       </Item>
       <Item>
         <IconSwitch {...p} />

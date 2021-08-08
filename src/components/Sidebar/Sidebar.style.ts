@@ -13,6 +13,7 @@ export const SidebarContainer = styled.div`
   padding: .5rem 1rem 0 0;
   transition: .5s;
   z-index: 100;
+  border-radius: 0px -30px -30px 0px;
   
   @media screen and (min-width: 768px){
     width: calc(var(--nav-width) + 156px);

@@ -8,7 +8,8 @@ export const Buttun = styled.span<{
   fontSize: string;
 }>`
   //background-color: ${(p) => p.color};
-  background-color: #2196f3;
+  //background-color: #2196f3;
+  background-color: ${COLOR.PRIMARY};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,15 +25,15 @@ export const Buttun = styled.span<{
   text-transform: uppercase;
 
   &:hover {
-    background-color: #47a7f5;
-    background-image: radial-gradient(circle, transparent 1%, #47a7f5 1%);
+    background-color:${COLOR.PRIMARY_DARCK};
+    background-image: radial-gradient(circle, transparent 1%, ${COLOR.PRIMARY_DARCK} 1%);
     background-position: center;
     background-size: 15000%;
   }
 
   &:active {
     transition: background 0s;
-    background-color: #6eb9f7;
+    background-color: ${COLOR.PRIMARY};
     background-size: 100%;
   }
 `;
