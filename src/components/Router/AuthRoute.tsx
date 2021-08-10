@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { AuthRouteInterface } from './helper/auth-router.interface';
+import React, { FC } from "react";
+import { AuthRouteInterface } from "./helper/auth-router.interface";
 
 const AuthRoute: FC<AuthRouteInterface> = ({
   component: Component,

@@ -1,14 +1,14 @@
-import React, { FC } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { FC } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import AuthRoute from './AuthRoute';
-import { RoutingInterface } from './helper/router.interface';
-import { routes as routesModule  } from './partials';
+import AuthRoute from "./AuthRoute";
+import { RoutingInterface } from "./helper/router.interface";
+import { routes as routesModule } from "./partials";
 
 export const Router: FC = () => (
   <BrowserRouter>
     <Switch>
-      {routesModule.map((routeModule: RoutingInterface) => (
+      {routesModule.map((routeModule: RoutingInterface) =>
         routeModule.routes.map((route, i) => (
           <Route
             key={i}
@@ -24,7 +24,7 @@ export const Router: FC = () => (
             )}
           />
         ))
-      ))}
+      )}
     </Switch>
   </BrowserRouter>
 );
