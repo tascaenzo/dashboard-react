@@ -30,6 +30,7 @@ const TextField = (props: Props): JSX.Element => {
   return (
     <Container ref={ref} className={className}>
       {variant !== "filled" && <Label>{label}</Label>}
+      <Icon>{icon}</Icon>
       <Input
         className={className}
         onClick={() => setActive(!active)}
@@ -38,7 +39,6 @@ const TextField = (props: Props): JSX.Element => {
         type={type}
         value={value}
       />
-      <Icon>{icon}</Icon>
       <Error>{error}</Error>
     </Container>
   );

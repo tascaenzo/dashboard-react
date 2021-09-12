@@ -24,6 +24,7 @@ export const Container = styled.div`
   align-items: center;
   margin: 35px 24px 0;
   padding-left: 6px;
+  padding-right: 6px;
   transition: 0.3s;
 
   &.default {
@@ -81,9 +82,9 @@ export const Label = styled.label`
 export const Icon = styled.span`
   color: ${COLOR.SECONDARY_DARCK};
   padding-right: 10px;
-  padding-top: 5px;
+  padding-top: 4px;
   transition: 0.3s;
-  font-size: 22px;
+  font-size: 18px;
 `;
 
 export const Error = styled.label`

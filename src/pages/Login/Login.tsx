@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import TextField from "../../components/TextField";
-import { BiUser } from "react-icons/bi";
-import "@material/react-button/dist/button.css";
+import { BiUser, BiLockAlt } from "react-icons/bi";
 
 import {
   BackgroundContainer,
@@ -15,8 +14,7 @@ import {
   AvatarConainer,
 } from "./Login.style";
 import Avatar from "../../utils/svg/Avatar";
-import Button from "@material/react-button";
-import { COLOR } from "../../utils/ui-style";
+import { Button } from "../../components/Button";
 
 const Login = (): JSX.Element => {
   const [email, setEmail] = useState("");
@@ -46,9 +44,10 @@ const Login = (): JSX.Element => {
               label="Password"
               variant="filled"
               type="password"
+              icon={<BiLockAlt type="solid" />}
             />
             <br />
-            <Button style={{backgroundColor: COLOR.PRIMARY}} dense={true}>Click Me!</Button>
+            <Button onClick={() => console.log("Click")} label="Accedi" />
           </FormContainer>
         </Right>
       </Container>

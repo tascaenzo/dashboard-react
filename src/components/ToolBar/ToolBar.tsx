@@ -27,7 +27,7 @@ const ToolBar = (): JSX.Element => {
   return (
     <ToolBarContainer>
       <Item>
-        <Button radius={true} icon={<BiPlus size={26} />} />
+        <Button onClick={() => null} radius={true} variant="filled" icon={<BiPlus size={26} />} />
         <SearchBar />
       </Item>
       <Item>

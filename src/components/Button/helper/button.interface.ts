@@ -1,11 +1,8 @@
-import { IconType } from "react-icons/lib";
-
 export interface Props {
-  color?: "PRIMARY" | "SECONDARY";
+  onClick: () => void;
+  color?: "primary" | "secondary" | string;
+  variant?: "default" | "filled" | "outlined";
   label?: string;
   radius?: boolean;
-  large?: boolean;
-  small?: boolean;
-  //outline?: boolean;
   icon?: JSX.Element;
 }
