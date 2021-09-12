@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { COLOR } from "../../utils/ui-style";
 import { ReactComponent as LoginIcon } from "../../utils/svg/login.svg";
+import { ReactComponent as AvatarIcon } from "../../utils/svg/avatar.svg";
 
 export const BackgroundContainer = styled.div`
   display: flex;
@@ -58,6 +59,8 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
+  display: flex;
+  justify-content: center;
   background-color: #fff;
   border-radius: 0 40px 40px 0;
   height: 100%;
@@ -67,7 +70,6 @@ export const Right = styled.div`
   @media screen and (max-width: 960px) {
     border-radius: 40px;
   }
-
 `;
 
 export const LoginImg = styled(LoginIcon)`
@@ -78,4 +80,16 @@ export const LoginImg = styled(LoginIcon)`
   &.svg > path {
     fill: ${COLOR.PRIMARY};
   }
+`;
+
+export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+`;
+
+export const AvatarConainer = styled.div`
+  margin-top: 35px;
+  width: 400px;
+  text-align: center;
 `;

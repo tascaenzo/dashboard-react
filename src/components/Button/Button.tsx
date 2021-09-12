@@ -37,8 +37,6 @@ const Button = (props: Props): JSX.Element => {
     }
   }
 
-  console.log(width);
-
   return (
     <Btn 
       color={COLOR.PRIMARY}

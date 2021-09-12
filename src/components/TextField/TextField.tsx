@@ -10,9 +10,11 @@ const TextField = (props: Props): JSX.Element => {
   const ref = useRef(null);
 
   let className = variant || "default";
-  if (active && error === undefined) className += " active";
-  if (active || value) className += " top";
-  if (error !== undefined) className += " error";
+  if (className !== "filled") {
+    if (active && error === undefined) className += " active";
+    if (active || value) className += " top";
+    if (error !== undefined) className += " error";
+  }
 
   useEffect(() => {
     const checkIfClickedOutside = () => {
@@ -25,37 +27,21 @@ const TextField = (props: Props): JSX.Element => {
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [active]);
-
-  switch (variant) {
-    case "filled":
-      return (
-        <Container ref={ref} className="filled">
-          <Input
-            className="filled"
-            onChange={(e) => onChange(e.target.value)}
-            placeholder={label}
-            type={type}
-            value={value}
-          />
-          <Icon>{icon}</Icon>
-          <Error>{error}</Error>
-        </Container>
-      );
-    default:
-      return (
-        <Container ref={ref} className={className}>
-          <Label className={className}>{label}</Label>
-          <Input
-            onClick={() => setActive(!active)}
-            onChange={(e) => onChange(e.target.value)}
-            type={type}
-            value={value}
-          />
-          <Icon>{icon}</Icon>
-          <Error>{error}</Error>
-        </Container>
-      );
-  }
+  return (
+    <Container ref={ref} className={className}>
+      {variant !== "filled" && <Label>{label}</Label>}
+      <Input
+        className={className}
+        onClick={() => setActive(!active)}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={variant === "filled" ? label : ""}
+        type={type}
+        value={value}
+      />
+      <Icon>{icon}</Icon>
+      <Error>{error}</Error>
+    </Container>
+  );
 };
 
 export default TextField;
