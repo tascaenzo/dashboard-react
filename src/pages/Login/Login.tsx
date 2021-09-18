@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "../../components/TextField";
 import { BiUser, BiLockAlt } from "react-icons/bi";
+import { Button } from "../../components/Button";
+import Avatar from "../../utils/svg/Avatar";
 
 import {
   BackgroundContainer,
@@ -12,12 +14,51 @@ import {
   LoginImg,
   FormContainer,
   AvatarConainer,
+  Footer,
+  BtnContainer,
 } from "./Login.style";
-import Avatar from "../../utils/svg/Avatar";
-import { Button } from "../../components/Button";
+
+import { useMutation } from "@apollo/client";
+import { SIGN_IN } from "../../api/auth/auth.mutation";
+import SessionModel from "../../models/session.model";
 
 const Login = (): JSX.Element => {
-  const [email, setEmail] = useState("");
+  const initialState = { error: "", value: "" };
+  const [email, setEmail] = useState(initialState);
+  const [password, setPassword] = useState(initialState);
+  const [signIn, { data, loading, error }] = useMutation<SessionModel>(SIGN_IN);
+
+  useEffect(() => {
+    if (error === undefined && !loading && !!data) {
+      console.log(data);
+    }
+  }, [data, error, loading]);
+
+  const submit = () => {
+    setEmail({ ...email, error: "" });
+    setPassword({ ...password, error: "" });
+    let check = true;
+
+    if (email.value === "") {
+      setEmail({ ...email, error: "Campo obligatorio" });
+      check = false;
+    }
+    if (password.value === "") {
+      setPassword({ ...password, error: "Campo obligatorio" });
+      check = false;
+    }
+    if (!check) return;
+
+    signIn({
+      variables: {
+        signInSignInUserInput: {
+          email: email.value,
+          password: password.value,
+        },
+      },
+    });
+  };
+
   return (
     <BackgroundContainer>
       <CircleBottom />
@@ -32,23 +73,27 @@ const Login = (): JSX.Element => {
               <Avatar />
             </AvatarConainer>
             <TextField
-              value={email}
-              onChange={(value) => setEmail(value)}
+              value={email.value}
+              onChange={(value) => setEmail({ ...email, value })}
+              error={email.error}
               label="Email"
               variant="filled"
               icon={<BiUser />}
             />
             <TextField
-              value={email}
-              onChange={(value) => setEmail(value)}
+              value={password.value}
+              error={password.error}
+              onChange={(value) => setPassword({ ...password, value })}
               label="Password"
               variant="filled"
               type="password"
               icon={<BiLockAlt type="solid" />}
             />
-            <br />
-            <Button onClick={() => console.log("Click")} label="Accedi" />
+            <BtnContainer>
+              <Button onClick={submit} variant="filled" label="Accedi" />
+            </BtnContainer>
           </FormContainer>
+          <Footer>Web Master Enzo Tasca</Footer>
         </Right>
       </Container>
     </BackgroundContainer>

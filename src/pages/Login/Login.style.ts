@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { COLOR } from "../../utils/ui-style";
 import { ReactComponent as LoginIcon } from "../../utils/svg/login.svg";
-import { ReactComponent as AvatarIcon } from "../../utils/svg/avatar.svg";
 
 export const BackgroundContainer = styled.div`
   display: flex;
@@ -41,6 +40,7 @@ export const Container = styled.div`
   z-index: 2;
   box-shadow: 0 2px 12px 0 rgba(38, 50, 56, 0.2);
   max-width: 1200px;
+  min-height: 500px;
 `;
 
 export const Left = styled.div`
@@ -59,8 +59,11 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
+  flex-direction: column;
   display: flex;
-  justify-content: center;
+  padding-top: 30px;
+  align-items: center;
+  justify-content: space-between;
   background-color: #fff;
   border-radius: 0 40px 40px 0;
   height: 100%;
@@ -84,12 +87,25 @@ export const LoginImg = styled(LoginIcon)`
 
 export const FormContainer = styled.form`
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width: 400px;
 `;
 
 export const AvatarConainer = styled.div`
   margin-top: 35px;
-  width: 400px;
+  width: 320px;
   text-align: center;
+`;
+
+export const Footer = styled.footer`
+  text-align: center;
+  margin: 30px;
+  font-size: 12px;
+  color: ${COLOR.SECONDARY};
+`;
+
+export const BtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 `;

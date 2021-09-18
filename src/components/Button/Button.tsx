@@ -4,7 +4,7 @@ import { Button as Btn, ButtonRadius } from "./Button.style";
 import { Props } from "./helper/button.interface";
 
 const Button = (props: Props): JSX.Element => {
-  const { color, radius, icon, label, variant, onClick } = props;
+  const { color, radius, icon, label, variant, length, onClick } = props;
 
   let c = color || COLOR.PRIMARY;
   if (color === "primary") c = COLOR.PRIMARY;
@@ -12,14 +12,14 @@ const Button = (props: Props): JSX.Element => {
 
   if (radius) {
     return (
-      <ButtonRadius className={variant} color={c} onClick={onClick}>
+      <ButtonRadius length={""} className={variant} color={c} onClick={onClick}>
         {icon}
       </ButtonRadius>
     );
   }
 
   return (
-    <Btn className={variant} color={c} onClick={onClick}>
+    <Btn length={length || ""} className={variant} color={c} onClick={onClick}>
       {label || icon}
     </Btn>
   );

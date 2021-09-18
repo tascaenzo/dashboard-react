@@ -3,6 +3,7 @@ import { COLOR } from "../../utils/ui-style/colors";
 
 export const Button = styled.span<{
   color: string;
+  length: string;
 }>`
   position: relative;
   display: inline-block;
@@ -10,6 +11,7 @@ export const Button = styled.span<{
   border-radius: 4px;
   padding: 0 16px;
   min-width: 64px;
+  max-width: ${(p) => p.length};
   height: 36px;
   vertical-align: middle;
   text-align: center;

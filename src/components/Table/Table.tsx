@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, { FC, useMemo, useEffect, useState } from "react";
 import { useTable } from "react-table";
 import { Card } from "../Card";
@@ -32,7 +33,7 @@ const Table: FC<Props> = ({ columns, items, viewMode }: Props) => {
   }, [viewMode, width]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data: useMemo(() => items, []) });
+    useTable({ columns, data: useMemo(() => items, [items]) });
 
   if (togleCard == ViewMode.TABLE) {
     return (

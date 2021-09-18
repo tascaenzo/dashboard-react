@@ -4,7 +4,7 @@ import { AuthRouteInterface } from "./helper/auth-router.interface";
 const AuthRoute: FC<AuthRouteInterface> = ({
   component: Component,
   template: Template,
-  type,
+  //type,
 }: AuthRouteInterface) => {
   /* const user = useUser();
 

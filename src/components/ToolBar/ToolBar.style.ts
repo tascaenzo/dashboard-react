@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { COLOR } from "../../utils/ui-style";
 
 export const ToolBarContainer = styled.div`
   display: flex;

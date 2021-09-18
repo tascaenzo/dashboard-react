@@ -1,12 +1,15 @@
-import { ApolloProvider } from '@apollo/client';
-import React from 'react';
-import { Router } from './components/Router';
-import client from './utils/apollo-client';
+import React from "react";
+import { ApolloProvider } from "@apollo/client";
+import { Router } from "./components/Router";
+import client from "./api/apollo-client";
+import { AuthContextProvider } from "./context/Auth";
 
 function App(): JSX.Element {
   return (
     <ApolloProvider client={client}>
-      <Router />
+      <AuthContextProvider>
+        <Router />
+      </AuthContextProvider>
     </ApolloProvider>
   );
 }
