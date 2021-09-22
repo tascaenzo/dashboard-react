@@ -1,19 +1,11 @@
 import React, { FC, useEffect } from "react";
-import useAuthContext, { AuthContext } from "../context/Auth";
+import useAuthContext from "../context/Auth";
 
 export const GenericPage: FC = () => {
-  const authCtx = useAuthContext();
-  console.log(authCtx);
+  const { dispatch, state} = useAuthContext();
+  console.log(state);
 
-  useEffect(() => {
-    if (authCtx.user === "enzo tasca") {
-      authCtx.reducer();
-    }
-  }, [authCtx]);
+  useEffect(() => dispatch({ type: "test" }), [dispatch]);
 
-  return (
-    <AuthContext.Consumer>
-      {(value) => <h1>{value.user}</h1>}
-    </AuthContext.Consumer>
-  );
+  return <h1>{state.user}</h1>;
 };

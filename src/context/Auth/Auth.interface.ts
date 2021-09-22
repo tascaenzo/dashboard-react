@@ -1,10 +1,8 @@
-export interface AuthState {
-  reducer: () => void | null
+export type AuthState = {
   user: string;
 }
 
 export const initialState: AuthState = {
-  reducer: () => null,
   user: "enzo tasca",
 };
 

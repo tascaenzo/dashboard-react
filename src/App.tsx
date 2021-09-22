@@ -2,14 +2,15 @@ import React from "react";
 import { ApolloProvider } from "@apollo/client";
 import { Router } from "./components/Router";
 import client from "./api/apollo-client";
-import { AuthContextProvider } from "./context/Auth";
+import useAuthContext from "./context/Auth";
 
 function App(): JSX.Element {
+  const { Provider } = useAuthContext();
   return (
     <ApolloProvider client={client}>
-      <AuthContextProvider>
+      <Provider>
         <Router />
-      </AuthContextProvider>
+      </Provider>
     </ApolloProvider>
   );
 }
