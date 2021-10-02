@@ -1,18 +1,12 @@
 import { Dispatch } from "react";
 
-export type UseContext<State> = {
+export type UseContext<State, Payload> = {
   Provider: React.FC;
   state: State;
-  dispatch: Dispatch<{ type: string }>;
+  dispatch: Dispatch<{ type: string; payload: Payload }>;
 };
 
-export type CreateContext<State> = {
+export type CreateContext<State, Payload> = {
   state: State;
-  dispatch: Dispatch<{ type: string }>;
+  dispatch: Dispatch<{ type: string; payload: Payload }>;
 };
-
-export type ReducerArgs<State> = {
-  state: State;
-  action: { type: string };
-};
-

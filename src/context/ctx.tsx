@@ -1,11 +1,11 @@
 import React, { FC, useContext, createContext, useReducer } from "react";
 import { UseContext, CreateContext } from "./ctx.interface";
 
-function useCtx<State>(
+function useCtx<State, Payload>(
   initialState: State,
-  reducer: (state: State, action: { type: string }) => State
-): UseContext<State> {
-  const Context = createContext<CreateContext<State>>({
+  reducer: (state: State, action: { type: string; payload: Payload }) => State
+): UseContext<State, Payload> {
+  const Context = createContext<CreateContext<State, Payload>>({
     state: initialState,
     dispatch: () => null,
   });
