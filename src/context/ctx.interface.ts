@@ -10,3 +10,8 @@ export type CreateContext<State, Payload> = {
   state: State;
   dispatch: Dispatch<{ type: string; payload: Payload }>;
 };
+
+export interface ActionInterface<Payload> {
+  type: string;
+  payload: Payload;
+}

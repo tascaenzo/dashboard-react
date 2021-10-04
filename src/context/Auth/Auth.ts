@@ -1,17 +1,40 @@
 import useCtx from "../ctx";
-import { UseContext } from "../ctx.interface";
-import { AuthState, /*AuthAction*/ initialState } from "./Auth.interface";
+import { ActionInterface, UseContext } from "../ctx.interface";
 
-export const useAuthContext = (): UseContext<AuthState, AuthState> => {
+import { useMutation } from "@apollo/client";
+import { SIGN_IN } from "../../api/auth/auth.mutation";
+import SessionModel from "../../models/session.model";
+
+import {
+  AuthState,
+  AuthAction,
+  initialState,
+  LoginInterface,
+} from "./Auth.interface";
+
+export const useAuthContext = (): UseContext<AuthState, LoginInterface> => {
+  const [signIn, { data, loading, error }] = useMutation<SessionModel>(SIGN_IN);
+
   const reducer = (
     state: AuthState,
-    action: { type: string; payload: AuthState }
+    { type, payload }: ActionInterface<LoginInterface>
   ): AuthState => {
-    switch (action.type) {
-      default:
+    switch (type) {
+      case AuthAction.SET_TOKE:
+        signIn({
+          variables: {
+            signInSignInUserInput: {
+              email: payload.email,
+              password: payload.password,
+            },
+          },
+        });
+        break;
+
+      case AuthAction.REFRESH_TOKEN:
         break;
     }
-    return { user: "Mario Rossi" };
+    return state;
   };
-  return useCtx<AuthState, AuthState>(initialState, reducer);
+  return useCtx<AuthState, LoginInterface>(initialState, reducer);
 };
