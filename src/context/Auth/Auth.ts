@@ -1,40 +1,40 @@
+import SessionModel from "../../models/session.model";
 import useCtx from "../ctx";
 import { ActionInterface, UseContext } from "../ctx.interface";
 
-import { useMutation } from "@apollo/client";
-import { SIGN_IN } from "../../api/auth/auth.mutation";
-import SessionModel from "../../models/session.model";
+import { AuthState, AuthAction, initialState } from "./Auth.interface";
 
-import {
-  AuthState,
-  AuthAction,
-  initialState,
-  LoginInterface,
-} from "./Auth.interface";
-
-export const useAuthContext = (): UseContext<AuthState, LoginInterface> => {
-  const [signIn, { data, loading, error }] = useMutation<SessionModel>(SIGN_IN);
-
+export const useAuthContext = (): UseContext<AuthState, SessionModel> => {
   const reducer = (
     state: AuthState,
-    { type, payload }: ActionInterface<LoginInterface>
+    { type, payload }: ActionInterface<SessionModel>
   ): AuthState => {
+    let token: string | null = null;
+    let refreshToken: string | null = null;
     switch (type) {
-      case AuthAction.SET_TOKE:
-        signIn({
-          variables: {
-            signInSignInUserInput: {
-              email: payload.email,
-              password: payload.password,
-            },
-          },
-        });
-        break;
+      case AuthAction.SET_SESSION:
+        localStorage.clear();
+        localStorage.setItem("token", payload.token);
+        localStorage.setItem("refresh_token", payload.refreshToken || "");
 
-      case AuthAction.REFRESH_TOKEN:
-        break;
+        return {
+          user: payload.user,
+          token: payload.token,
+          refreshToken: payload.refreshToken || null,
+          isAuthenticate: true,
+        };
+
+      case AuthAction.INIT_SESSION:
+        token = localStorage.getItem("token");
+        refreshToken = localStorage.getItem("refresh_token");
+        return {
+          user: payload.user,
+          token,
+          refreshToken,
+          isAuthenticate: token !== null,
+        };
     }
     return state;
   };
-  return useCtx<AuthState, LoginInterface>(initialState, reducer);
+  return useCtx<AuthState, SessionModel>(initialState, reducer);
 };

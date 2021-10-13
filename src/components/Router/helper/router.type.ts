@@ -1,4 +1,4 @@
-export enum ROUTE_TYPE {
+export enum RouterType {
   PRIVATE = 'private',
   PUBLIC = 'public',
 }

@@ -5,12 +5,12 @@ function useCtx<State, Payload>(
   initialState: State,
   reducer: (state: State, action: { type: string; payload: Payload }) => State
 ): UseContext<State, Payload> {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const Context = createContext<CreateContext<State, Payload>>({
-    state: initialState,
-    dispatch: () => null,
+    state,
+    dispatch,
   });
 
-  const [state, dispatch] = useReducer(reducer, initialState);
   const Provider: FC = ({ children }) => (
     <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
   );

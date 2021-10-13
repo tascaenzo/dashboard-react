@@ -5,6 +5,12 @@ export const SIGN_IN = gql`
     signIn(signInUserInput: $signInSignInUserInput) {
       token
       refreshToken
+      user {
+        id
+        name
+        surname
+        role
+      }
     }
   }
 `;

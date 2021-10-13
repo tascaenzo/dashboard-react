@@ -16,7 +16,6 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.map(({ message }) => {

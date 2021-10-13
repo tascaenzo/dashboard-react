@@ -1,3 +1,5 @@
+import UserModel from "./user.model";
+
 interface SessionModel {
   token: string;
   refreshToken?: string;
@@ -7,6 +9,7 @@ interface SessionModel {
   userAgent?: string;
   ip?: string;
   expiredAt?: Date;
+  user: UserModel
 }
 
 export default SessionModel;
