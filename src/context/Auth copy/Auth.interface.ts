@@ -13,3 +13,13 @@ export const initialState: AuthState = {
   refreshToken: null,
   isAuthenticate: null
 };
+
+/* export interface LoginInterface {
+  email: string;
+  password: string;
+} */
+
+export enum AuthAction {
+  INIT_SESSION = "INIT_SESSION",
+  SET_SESSION = "SET_TOKE",
+}

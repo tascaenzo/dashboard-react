@@ -3,7 +3,7 @@ import TextField from "../../components/TextField";
 import { BiUser, BiLockAlt } from "react-icons/bi";
 import { Button } from "../../components/Button";
 import Avatar from "../../utils/svg/Avatar";
-import useAuthContext, { AuthAction } from "../../context/Auth";
+import useAuthContext from "../../context/Auth";
 
 import {
   BackgroundContainer,
@@ -29,7 +29,7 @@ const Login = (): JSX.Element => {
   const [email, setEmail] = useState(initialState);
   const [password, setPassword] = useState(initialState);
 
-  const { dispatch, state } = useAuthContext();
+  //const { dispatch, state } = useAuthContext();
   const [signIn, { data, loading, error }] =
     useMutation<{ signIn: SessionModel }>(SIGN_IN);
 
@@ -37,14 +37,17 @@ const Login = (): JSX.Element => {
     variables: { token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbIkFETUlOIl0sImlkIjoiNjEyODE2ODU5ODI5OTQwZDkxMWQxNjA1Iiwia2V5IjoiMTYzNDE1Nzk5ODQzNCIsImlhdCI6MTYzNDE1Nzk5OCwiZXhwIjoxNjM0MjAxMTk4fQ.GdoXUxi7j3XmXlstX3hF66EjcFooOHcWza3QUGswfsg" },
   });
 
-  console.log(q.data)
-  useEffect(() => {
+  //console.log(q.data)
+ /*  useEffect(() => {
     if (error === undefined && !loading && !!data) {
       dispatch({ type: AuthAction.SET_SESSION, payload: data.signIn });
     }
   }, [data, dispatch, error, loading]);
 
-  useEffect(() => console.log(state), [state]);
+  useEffect(() =>{
+    dispatch({ type: AuthAction.INIT_SESSION, payload: undefined });
+
+  }, []); */
 
   const submit = () => {
     /* setEmail({ ...email, error: "" });
